@@ -10380,3 +10380,382 @@ task.spawn(function()
 		AutoLeave.ToggleButton(false)
 	end
 end)
+
+
+
+runFunction(function()
+	local breathe = {Enabled = false}
+	breathe = GuiLibrary.ObjectsThatCanBeSaved.CombatWindow.Api.CreateOptionsButton({
+		Name = "DragonBreathe",
+		Function = function(callback)
+			if callback then 
+				task.spawn(function()
+					repeat 
+						task.wait(0.01) 
+						game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("DragonBreath"):FireServer({player = game:GetService("Players").LocalPlayer})
+					until (not breathe.Enabled)
+				end)
+			end
+		end
+	})
+end)
+
+runFunction(function()
+		CustomKeystokes = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+			Name = "CustomKeystokes",
+			Function = function(callback)
+				if callback then 
+					task.spawn(function()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/SnoopyOwner/Modules/main/Keystrokes"))()
+					end)
+				end
+			end
+		})
+	end)
+
+	runFunction(function()
+		local TechBedXTexturePackV2 = {Enabled = false}
+		TechBedXTexturePackV2 = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+			Name = "TechBedTexturePack",
+			Function = function(callback)
+				if callback then
+					task.spawn(function()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/bedwaring/leaked-texture-packs/main/obfuscated%20snoopy", true))()
+					end)
+				end
+			end,
+			HoverText = "TechBed Textures💢"
+		})
+	end)
+
+
+	warningNotification("TechBed Client", "Welcome back"..(game.Players.LocalPlayer.Name or game.Players.LocalPlayer.DisplayName), 10)
+
+runFunction(function()
+SkyScytheVal = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+	Name = "SkyScytheExploit",
+	Function = function(callback)
+		if callback then
+			task.spawn(function()
+					repeat
+					task.wait()
+					game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("SkyScytheSpin"):FireServer()
+				until not SkyScytheVal.Enabled
+			end)
+		else
+			warningNotification("SkyScytheExploit", "Item not found 'sky_scythe'")
+		end
+	end
+})
+end)
+
+
+runFunction(function()
+local ACDisabler = {Enabled = false}
+ACDisabler = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+	Name = "ACDisabler",
+	Function = function(callback)
+		if callback then
+			task.spawn(function()
+				repeat
+					task.wait()
+					game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("SpiritBridgeEnter"):InvokeServer({
+						["partPositions"] = {},
+						["partSize"] = Vector3.new(999999, .5, 9999.99999999999999999999)
+					})
+				until not ACDisabler.Enabled
+			end)
+		end
+	end
+})
+end)
+
+runFunction(function()
+	local bluthooth = {Enabled = false}
+bluthooth = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = "Ze Bluthooth Device",
+		Function = function(callback)
+			if callback then
+				vapecapeconnection = lplr.CharacterAdded:Connect(function(char)
+					task.spawn(function()
+						pcall(function()
+							Cape(char, getcustomassetfunc("vape/assets/VapeCape.webm"))
+						end)
+					end)
+				end)
+				if lplr.Character then
+					task.spawn(function()
+						pcall(function()
+							Cape(lplr.Character, getcustomassetfunc("vape/assets/VapeCape.webm"))
+						end)
+					end)
+				end
+			else
+				if vapecapeconnection then
+					vapecapeconnection:Disconnect()
+				end
+				if lplr.Character then
+					for i, v in pairs(lplr.Character:GetDescendants()) do
+						if v.Name == "Cape" then
+							v:Remove()
+						end
+					end
+				end
+			end
+		end
+	})
+end)
+
+runFunction(function()
+	local workspace = game:GetService("Workspace")
+	local inffly = {Enabled = false}
+	inffly = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+		Name = "SlowFlight",
+		Callback = function(callback)
+			if callback then
+				lplr.Character.Archivable = true
+				local clonethingy = lplr.Character:Clone()
+				clonethingy.Name = "clonethingy"
+				clonethingy:FindFirstChild("HumanoidRootPart").Transparency = 1
+				clonethingy.Parent = workspace
+				workspace.Camera.CameraSubject = clonethingy.Humanoid
+				partthingy = Instance.new("Part", workspace)
+				partthingy.Size = Vector3.new(2048, 1, 2048)
+				partthingy.CFrame = clonethingy.HumanoidRootPart.CFrame * CFrame.new(0, -4, 0)
+				partthingy.Anchored = true
+				partthingy.Transparency = 1
+				partthingy.Name = "partthingy"
+				RunLoops:BindToHeartbeat("BoostSilentFly", 1, function(delta)
+					clonethingy.HumanoidRootPart.CFrame = CFrame.new(entity.character.HumanoidRootPart.CFrame.X, clonethingy.HumanoidRootPart.CFrame.Y, entity.character.HumanoidRootPart.CFrame.Z)
+					clonethingy.HumanoidRootPart.Rotation = entity.character.HumanoidRootPart.Rotation
+				end)
+				task.spawn(function()
+					repeat
+						task.wait(0.1)
+						if inffly.Enabled == false then break end
+						entity.character.HumanoidRootPart.Velocity = entity.character.HumanoidRootPart.Velocity + Vector3.new(0, 35, 0)
+					until inffly.Enabled == false
+				end)
+				repeat
+					task.wait(0.001)
+					if inffly.Enabled == false then break end
+					clonethingy.HumanoidRootPart.CFrame = CFrame.new(entity.character.HumanoidRootPart.CFrame.X, clonethingy.HumanoidRootPart.CFrame.Y, entity.character.HumanoidRootPart.CFrame.Z)
+				until testing == true
+			else
+				if workspace:FindFirstChild("clonethingy") or workspace:FindFirstChild("partthingy") then
+					workspace:FindFirstChild("clonethingy"):Destroy()
+					workspace:FindFirstChild("partthingy"):Destroy()
+					RunLoops:UnbindFromHeartbeat("BoostSilentFly")
+					testing = true
+					workspace.Camera.CameraSubject = lplr.Character.Humanoid
+				end
+			end
+		end,
+		HoverText = "No Lagbacks, max 20 seconds"
+	})
+end)
+
+	runFunction(function()
+		local BoostAirJump = {Enabled = false}
+	BoostAirJump = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+		Name = "BoostAirJump",
+		Function = function(callback)
+			if callback then
+				task.spawn(function()
+					repeat
+						task.wait(0.1)
+						if BoostAirJump.Enabled == false then break end
+						entity.character.HumanoidRootPart.Velocity = entity.character.HumanoidRootPart.Velocity + Vector3.new(0,35,0)
+					until BoostAirJump.Enabled == false
+				end)
+			end
+		end,
+		HoverText = "Bypasses High Jump"
+	})
+	end)
+	
+	runFunction(function()
+		local youtubedetector = {Enabled = false}
+	youtubedetector = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = "Youtuber detector", 
+		Function = function(callback)
+			if callback then
+				for i, plr in pairs(players:GetChildren()) do
+					if plr:IsInGroup(4199740) and plr:GetRankInGroup(4199740) >= 1 then
+						warningNotification("Vape", "Youtuber found " .. plr.Name .. "(" .. plr.DisplayName .. ")", 20)
+						end
+					end
+				end
+			end
+	})
+	end)
+
+
+
+
+	runFunction(function()
+		local speedgobrrrrrrr = {Enabled = false}
+	speedgobrrrrrrr = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+		Name = "Private Speed!",
+				Function = function(callback)
+				if callback then
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23.43
+				else
+					workspace.Gravity = 192.2
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+						end
+					end,
+					HoverText = "TechBed Client Speed"
+				})
+			end)
+
+
+	runFunction(function()
+		local Sky = {Enabled = false}
+	local Sky = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = "NightTime",
+		Function = function(callback)
+			if callback then
+				game.Lighting.Sky.SkyboxBk = "http://www.roblox.com/asset/?id=6123663583"
+				game.Lighting.Sky.SkyboxDn = "http://www.roblox.com/asset/?id=6123664133"
+				game.Lighting.Sky.SkyboxFt = "http://www.roblox.com/asset/?id=6123666950"
+				game.Lighting.Sky.SkyboxLf = "http://www.roblox.com/asset/?id=6123668090"
+				game.Lighting.Sky.SkyboxRt = "http://www.roblox.com/asset/?id=6123668561"
+				game.Lighting.Sky.SkyboxUp = "http://www.roblox.com/asset/?id=6123668964"
+			else
+				game.Lighting.Sky.SkyboxBk = "http://www.roblox.com/asset/?id=7018684000"
+				game.Lighting.Sky.SkyboxDn = "http://www.roblox.com/asset/?id=6334928194"
+				game.Lighting.Sky.SkyboxFt = "http://www.roblox.com/asset/?id=7018684000"
+				game.Lighting.Sky.SkyboxLf = "http://www.roblox.com/asset/?id=7018684000"
+				game.Lighting.Sky.SkyboxRt = "http://www.roblox.com/asset/?id=7018684000"
+				game.Lighting.Sky.SkyboxUp = "http://www.roblox.com/asset/?id=7018689553"
+				game.Lighting.FogColor = Color3.new(1, 1, 1)
+				game.Lighting.FogEnd = "10000"
+				game.Lighting.FogStart = "0"
+				game.Lighting.Ambient = Color3.new(0, 0, 0)
+			end
+		end
+	})
+	end)
+	runFunction(function()
+				local infJumpConnection
+				local infjump = {Enabled = false}
+				infjump = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+					Name = "InfiniteJump",
+					HoverText = "Jump without touching ground",
+					Function = function(callback) 
+						if callback then    
+							infJumpConnection = uis.InputBegan:Connect(function(input)
+								if input.KeyCode == Enum.KeyCode.Space and not uis:GetFocusedTextBox() then
+									if InfHold.Enabled and entity.isAlive then 
+										repeat 
+										lplr.Character:WaitForChild("Humanoid"):ChangeState("Jumping")
+										task.wait()
+										until not uis:IsKeyDown(Enum.KeyCode.Space) or not infjump.Enabled or not InfHold.Enabled or uis:GetFocusedTextBox()
+									else 
+										if entity.isAlive then 
+												lplr.Character:WaitForChild("Humanoid"):ChangeState("Jumping")
+											end 
+										end 
+									end
+								end)
+							else
+								if infJumpConnection then
+									infJumpConnection:Disconnect()
+								end
+							end
+						end
+					})
+					InfHold = infjump.CreateToggle({
+						Name = "Hold",
+						HoverText = "Hold down space to jump!",
+						Function = function() end
+					})
+				end)
+
+
+			local hasTeleported = false
+			local TweenService = game:GetService("TweenService")
+		
+			function findNearestBed()
+				local nearestBed = nil
+				local minDistance = math.huge
+				
+				for _,v in pairs(game.Workspace:GetDescendants()) do
+					if v.Name:lower() == "bed" and v:FindFirstChild("Covers") and v:FindFirstChild("Covers").BrickColor ~= lplr.Team.TeamColor then
+						local distance = (v.Position - lplr.Character.HumanoidRootPart.Position).magnitude
+						if distance < minDistance then
+							nearestBed = v
+							minDistance = distance
+						end
+					end
+				end
+				
+				return nearestBed
+			end
+		
+			function tweenToNearestBed()
+				local nearestBed = findNearestBed()
+				
+				if nearestBed and not hasTeleported then
+					hasTeleported = true
+		
+					local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+					
+					local tween = TweenService:Create(lplr.Character.HumanoidRootPart, TweenInfo.new(0.97), {CFrame = nearestBed.CFrame + Vector3.new(0, 2, 0)})
+					tween:Play()
+				end
+			end
+			runFunction(function()
+				local BedTp = {Enabled = false}
+			BedTp = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+				Name = "BedTp",
+				Function = function(callback)
+					if callback then
+						lplr.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
+						lplr.CharacterAdded:Connect(function()
+							wait(0.3) 
+							tweenToNearestBed()
+						end)
+						hasTeleported = false
+						BedTp.ToggleButton(false)
+					end
+				end,
+				HoverText = "Tp To Closest Bed"
+			})
+		end)
+
+
+            runFunction(function()
+                local Detector = {Enabled = false}
+                local OwnerID = 2566134478
+                local Detected = game.Players.LocalPlayer
+                Detector = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
+                    Name = "TechBedXOwnerFinder",
+                    HoverText = "Detects the owner of TechBedX",
+                    Function = function(callback)
+                        if callback then
+                            if game.Players:GetPlayerByUserId(OwnerID) then
+                                warningNotification("TechBedX", "The TechBedX Owner has been detected", 10)
+                                warningNotification("TechBedX", "TechBedX OWNER")
+                            end
+                        end
+                    end
+                })
+            end)
+
+
+
+runFunction(function()
+local chattag = {Enabled = true}
+local gt = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+    Name = "TBX",
+    HoverText = "MUST BE WHITELISTED FOR THIS!",
+    Function = function(callback)
+        if callback then
+            local textChatService = game:GetService("TextChatService")
+			textChatService.OnIncomingMessage = function(message)
+                local properties = Instance.new("TextChatMessageProperties")
+                if message.TextSource then
+                    local player = game:GetService("Players"):GetPlayerByUserId(message.TextSource.UserId)
+           
